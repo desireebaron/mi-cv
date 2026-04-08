@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desirée Barón | Portafolio Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-body: #F0F0F2;      /* Blanco Grisáceo */
+            --primary: #352F59;      /* Azul Profundo / Morado Oscuro */
+            --accent-muted: #9E99BF; /* Lavanda Grisáceo */
+            --highlight: #BFBDF2;    /* Lavanda Claro */
+            --soft-purple: #DDDCF2;  /* Lavanda Muy Claro */
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-purple);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-muted);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, #252142 100%);
+            color: var(--white);
+            padding: 60px 10%;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 550px;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* Contenedor de la foto con forma orgánica */
+        .hero-img-container {
+            flex: 0 0 350px;
+            height: 350px;
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 8px solid rgba(191, 189, 242, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        .hero-img:hover {
+            border-radius: 50%;
+            transform: scale(1.02);
+            border-color: var(--highlight);
+        }
+        /* Ajuste para celulares */
+@media (max-width: 850px) {
+    .hero-container {
+        flex-direction: column-reverse; /* Foto arriba, texto abajo en móviles */
+        text-align: center;
+    }
+    .hero-text { text-align: center; }
+    .hero-img-container { flex: 0 0 240px; height: 240px; }
+}
+
+
+        .btn-cta {
+            background: var(--highlight);
+            color: var(--primary);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 18px 30px rgba(191, 189, 242, 0.4);
+            background: var(--white);
+        }
+
+        /* --- Layout General --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 20px 2rem 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--highlight);
+        }
+
+        /* --- Tarjetas --- */
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            border: 1px solid var(--soft-purple);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(53, 47, 89, 0.05);
+            border-color: var(--highlight);
+        }
+
+        /* --- Experiencia Timeline --- */
+        .timeline-item {
+            padding-left: 30px;
+            border-left: 2px solid var(--soft-purple);
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--highlight);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px var(--highlight);
+        }
+
+        .date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* --- Habilidades --- */
+        /* --- Habilidades (Ajustado para centrado total) --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: var(--soft-purple);
+            color: var(--primary);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+            
+
+            display: flex;             /* Convierte el botón en contenedor flexible */
+            align-items: center;       /* Centra verticalmente el texto */
+            justify-content: center;    /* Centra horizontalmente el texto */
+            text-align: center;        /* Centra las líneas de texto entre sí */
+            min-height: 55px;          /* Altura mínima para que todos sean iguales */
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px); /* Un pequeño efecto de elevación al pasar el mouse */
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- ESTILOS DEL MODAL (NUEVO) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(53, 47, 89, 0.4);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 2000;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+
+        .modal-content {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.8);
+            transition: var(--transition);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-overlay.active .modal-content { transform: scale(1); }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent-muted);
+        }
+
+        .modal-title { color: var(--primary); margin-bottom: 1.5rem; font-weight: 800; }
+
+        .contact-grid { display: grid; gap: 15px; }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--primary);
+            background: var(--soft-purple);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-link i { font-size: 1.5rem; margin-right: 15px; width: 30px; }
+
+        .contact-link:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem 5%; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Licda. Desirée Barón</div>
+    <nav>
+        <a href="#perfil">Perfil</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1 data-aos="fade-right">Desirée Barón</h1>
+            <p data-aos="fade-right" data-aos-delay="200">
+                Licenciada y T.S.U en  Informática, enfocada en el Aseguramiento de Calidad de Software
+                Y Seguridad de la Información.
+            </p>
+            <button onclick="toggleModal()" class="btn-cta" data-aos="zoom-in" data-aos-delay="400">
+                Contáctame
+            </button>
+        </div>
+
+        <div class="hero-img-container" data-aos="fade-left">
+            <img src="DesiBlanco.png" alt="Desirée Barón" class="hero-img">
+        </div>
+    </div>
+</section>
+
+
+<div class="modal-overlay" id="contactModal" onclick="closeOnOutsideClick(event)">
+    <div class="modal-content">
+        <span class="close-modal" onclick="toggleModal()">&times;</span>
+        <h2 class="modal-title">¡Hablemos!</h2>
+        <div class="contact-grid">
+            
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=desiree.baron@gmail.com" target="_blank" class="contact-link">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Gmail</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/desiree-baron-b790331a/" target="_blank" class="contact-link">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+            </a>
+
+            <a href="https://t.me/dbaron82" target="_blank" class="contact-link">
+                <i class="fa-brands fa-telegram"></i>
+                <span>Telegram</span>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <section id="perfil" data-aos="fade-up">
+        <h2 class="section-title">Perfil Profesional</h2>
+        <div class="card">
+            <p>
+                Edad: 43 años
+            </p>
+            <p>
+                Nacionalidad: Venezolana.
+            </p>   
+            <p>
+                Analista de Sistemas con amplia experiencia en el Aseguramiento de la Calidad (QA) y Seguridad de la Información. He liderado proyectos críticos en el sector financiero y gubernamental, integrando la rigurosidad de ISTQB/Scrum con marcos de cumplimiento internacional. He encabezado la implementación de Sistemas de Gestión de Seguridad de la Información (SGSI) basados en ISO/IEC 27001, alineando controles técnicos de CIS con políticas estratégicas para garantizar la resiliencia operativa y la protección de activos críticos.
+            </p>
+        </div>
+    </section>
+
+    <section id="experiencia">
+        <h2 class="section-title" data-aos="fade-up">Trayectoria</h2>
+        
+        <div class="card" data-aos="fade-up">
+            <div class="timeline-item">
+                <span class="date">Nov. 2022 - Actualmente </span>
+                <h3>Ingeniero de Pruebas Senior </h3>
+                <p><strong>Initium Software</strong></p>
+                <ul>
+                    <li>Liderazgo Estratégico: Dirigí el equipo de QA en la implementación del sistema de cotización y emisión de pólizas, logrando una disminución del 100% en errores críticos tras la puesta en producción.</li>
+                    <li>Uso de herramientas de Inteligencia Artificial para la generación de matrices de prueba y estimación de tiempos, reduciendo el ciclo de vida de las pruebas en un 50%.</li>
+                    <li>Implementación tipos y niveles de prueba: Integración, Humo, Regresión, Sanidad, Mobile testing. </li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">Feb. 2019 - Actualmente </span>
+                <h3>Analista Seguridad de la Información </h3>
+                <p><strong>Ministerio del Poder Popular para Relaciones Exteriores</strong></p>
+                <ul>
+                    <li>Lideré el levantamiento técnico y diagnóstico de brechas para la adopción de los Controles de Seguridad Críticos de CIS (v8).</li>
+                    <li>Gobernanza y Cumplimiento: Formulé normas, y lineamientos institucionales bajo los pilares de confidencialidad, integridad y disponibilidad.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="date">Feb. 2022 - Ago. 2022 </span>
+                <h3>Analista QA Senior</h3>
+                <p><strong>Ivolution Software - Colombia</strong></p>
+                <li>Aseguramiento de calidad para los sistemas,  Ejecución de casos de prueba manuales, detección de mejoras y seguimiento exhaustivo.</li>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2015 - 2020 </span>
+                <h3>Analista Seguridad de la Información</h3>
+                <p><strong>SUSCERTE</strong></p>
+                <li>Diseño y definición de controles de seguridad basados en la norma ISO 27001, mitigando riesgos de integridad y confidencialidad en activos digitales críticos.</li>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2010 - 2015 </span>
+                <h3>Coordinadora de Certificación y Calidad </h3>
+                <p><strong>CADIVI</strong></p>
+                <li>Ejecución de pruebas integrales para plataformas financieras de alta demanda.</li>
+                <li>Gestión de Release: Responsable de la puesta en producción y monitoreo post-implementación, garantizando continuidad operativa</li>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2003 - 2010 </span>
+                <h3>Analista de Sistemas de Información -QA </h3>
+                <p><strong>MERCAL</strong></p>
+                <li>Ejecución de pruebas integrales para plataformas retail.</li>
+             
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <h2 class="section-title" data-aos="fade-up">Habilidades Técnicas</h2>
+        <div class="card" data-aos="fade-up">
+            <div class="skills-grid">
+                <div class="skill-tag">QA TESTER</div>
+                <div class="skill-tag">Desarrollo de IA </div>
+                <div class="skill-tag">POSTMAN </div>
+                <div class="skill-tag">JIRA SOFTWARE </div>
+                <div class="skill-tag">CONFLUENCE</div>
+                <div class="skill-tag">Ciberseguridad </div>
+                <div class="skill-tag">Gobernanza y Cumplimiento</div>
+                <div class="skill-tag">MySQL </div>
+                <div class="skill-tag">SCRUM</div>
+                <div class="skill-tag">API TESTING</div>
+                <div class="skill-tag">Gestión de Proyectos</div>
+                <div class="skill-tag">Excel Intermedio</div>
+                <div class="skill-tag">Inglés (Intermedio) </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades2">
+        <h2 class="section-title" data-aos="fade-up">Habilidades Blandas</h2>
+        <div class="card" data-aos="fade-up">
+            <div class="skills-grid">
+                <div class="skill-tag">Pensamiento crítico y analítico </div>
+                <div class="skill-tag">Comunicación Asertiva </div>
+                <div class="skill-tag">Ética Profesional </div>
+                <div class="skill-tag">Adaptabilidad </div>
+                <div class="skill-tag">Trabajo en Equipo </div>
+                <div class="skill-tag">Aprendizaje continuo </div>
+                <div class="skill-tag">Atención al detalle </div>
+                <div class="skill-tag">Liderazgo </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="educacion">
+        <h2 class="section-title" data-aos="fade-up">Formación</h2>
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div class="card" data-aos="zoom-in">
+                <h3>Licenciatura Admón Mención Informática</h3>
+                <p>
+                    <a href="https://www.instagram.com/unesr_oficial/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; font-weight: 600; border-bottom: 1px dashed var(--accent-muted);">
+                        UNERS
+                    </a>
+                </p>
+                <span class="date">2009</span>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                <h3>T.S.U en Informática</h3>
+                <p>
+                    <a href="https://www.instagram.com/iujocatia/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; font-weight: 600; border-bottom: 1px dashed var(--accent-muted);">
+                        Instituto Universitario Jesús Obrero
+                    </a>
+                </p>
+                <span class="date">2002</span>
+            </div>
+            <div class="card" data-aos="zoom-in">
+                <h3>ISO 27001:2013 Sistemas de Gestión de Seguridad de la Información</h3>
+                <p>                    
+                        FONDONORMA
+                    
+                </p>
+                <span class="date">Abril 2015 </span>
+                
+            </div>
+            <div class="card" data-aos="zoom-in">
+                <h3>Base de Datos Oracle 10g: Workshop Administración I</h3>
+                <p>                
+                       ORACLE UNIVERSITY
+                    
+                </p>
+                <span class="date">Abril 2009 </span>
+                
+            </div>
+
+            <div class="card" data-aos="zoom-in">
+                <h3>Curso Básico Evaluación y Análisis de Vulnerabilidades</h3>
+                <p>                
+                       INTELICORP
+                    
+                </p>
+                <span class="date">Octubre 2015 </span>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" data-aos="fade-up">
+        <h2 class="section-title">Contacto</h2>
+        <div class="card" style="text-align: center;">
+            <p style="margin-bottom: 0.8rem; font-weight: 700; color: var(--primary); font-size: 1.2rem;">
+                ¿Interesado en que sea parte de tu equipo o contratar mis servicios?
+            </p>
+    
+            <button onclick="toggleModal()" class="btn-cta" style="margin-bottom: 2rem;">
+                Ver Redes Sociales
+            </button>
+    
+            <p style="color: var(--accent-muted); font-weight: 600;">
+                Caracas, Venezuela
+            </p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Desirée Barón. Presentación Profesional.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: false, // CAMBIADO DE true A false
+        easing: 'ease-in-out',
+        mirror: true 
+    });
+
+    function toggleModal() {
+        const modal = document.getElementById('contactModal');
+        modal.classList.toggle('active');
+    }
+
+    function closeOnOutsideClick(e) {
+        if (e.target.id === 'contactModal') {
+            toggleModal();
+        }
+    }
+</script>
+
+</body>
+</html>
